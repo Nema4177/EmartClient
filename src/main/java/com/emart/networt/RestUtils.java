@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.emart.utils.Constants;
+import com.emart.utils.SellerConstants;
 
 @Component
 public class RestUtils {
@@ -17,13 +17,14 @@ public class RestUtils {
 	public JSONObject getRequest(String url) throws ParseException {
 		JSONParser jsonParser = new JSONParser();
 		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.setErrorHandler(new RestErrorHandler());
 		ResponseEntity<String> response
 		  = restTemplate.getForEntity(url, String.class);
 		HttpStatus statusCode = response.getStatusCode();
 		if(!statusCode.equals(HttpStatus.OK)) {
 			System.out.println("API call returned status code "+statusCode);
 			JSONObject failureResponse = new JSONObject();
-			failureResponse.put(Constants.response_status_key, Constants.failure);
+			failureResponse.put(SellerConstants.response_status_key, SellerConstants.failure);
 			return failureResponse;
 		}
 		String responseBody = response.getBody();
@@ -34,13 +35,14 @@ public class RestUtils {
 	public JSONObject postRequest(JSONObject postObject, String url) throws ParseException {
 		JSONParser jsonParser = new JSONParser();
 		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.setErrorHandler(new RestErrorHandler());
 		ResponseEntity<String> response
 		  = restTemplate.postForEntity(url, postObject, String.class);
 		HttpStatus statusCode = response.getStatusCode();
 		if(!statusCode.equals(HttpStatus.OK)) {
 			System.out.println("API call returned status code "+statusCode);
 			JSONObject failureResponse = new JSONObject();
-			failureResponse.put(Constants.response_status_key, Constants.failure);
+			failureResponse.put(SellerConstants.response_status_key, SellerConstants.failure);
 			return failureResponse;
 		}
 		String responseBody = response.getBody();

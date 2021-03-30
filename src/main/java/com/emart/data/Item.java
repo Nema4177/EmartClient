@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Item {
 
     private int id;
-    private String name;
+    private String itemName;
     private int category;
-    private ArrayList<String> keyWords;
+    private String keywords;
     private ItemCondition condition;
     private double price;
     private int sellerId;
@@ -16,11 +16,11 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, int category, ArrayList<String> keyWords, ItemCondition condition, double price,
+    public Item(String name, int category, String keyWords, ItemCondition condition, double price,
                 int sellerId, int quantity) {
-        this.name = name;
+        this.itemName = name;
         this.category = category;
-        this.keyWords = keyWords;
+        this.keywords = keyWords;
         this.condition = condition;
         this.price = price;
         this.sellerId = sellerId;
@@ -36,11 +36,11 @@ public class Item {
     }
 
     public String getName() {
-        return name;
+        return itemName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.itemName = name;
     }
 
     public int getCategory() {
@@ -51,12 +51,12 @@ public class Item {
         this.category = category;
     }
 
-    public ArrayList<String> getKeyWords() {
-        return keyWords;
+    public String getKeyWords() {
+        return keywords;
     }
 
-    public void setKeyWords(ArrayList<String> keyWords) {
-        this.keyWords = keyWords;
+    public void setKeyWords(String keyWords) {
+        this.keywords = keyWords;
     }
 
     public ItemCondition getCondition() {

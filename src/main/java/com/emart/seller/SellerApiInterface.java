@@ -23,7 +23,7 @@ public interface SellerApiInterface {
         removeItemFromDB
     }
     
-    public JSONObject createAccount(String username, String password) throws Exception;
+    public JSONObject createAccount(String username, String name,String password) throws Exception;
     
     public JSONObject login(String username, String password) throws Exception;
     
@@ -60,4 +60,5 @@ public interface SellerApiInterface {
      * @return list of Item object, added by the seller
      */
     public JSONObject getAllItemsBySeller(int sellerId) throws Exception;
+
 }

@@ -18,7 +18,7 @@ private int interfaceType = 0;
 
 @Autowired
 SellerDriver sellerDriver;
-	
+
 @PostConstruct
 	public void selector() {
 		while(interfaceType !=1 && interfaceType !=2) {
@@ -26,7 +26,7 @@ SellerDriver sellerDriver;
 			if(interfaceType == 1) {
 				sellerDriver.start();
 			}else if(interfaceType ==2) {
-				
+				//buyerDriver.start();
 			}
 		}
 	}
