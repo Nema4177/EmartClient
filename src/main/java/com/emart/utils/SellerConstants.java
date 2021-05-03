@@ -14,8 +14,8 @@ public class SellerConstants {
 	public static final String removeItemPath = "removeItem";
 	public static final String displayItemsPath = "getAllItems";
 
-	public static final List<String> baseURLs = new ArrayList<>(List.of("http://34.106.13.241:8081/", "http://34.125.75.24:8081/",
-			"http://34.83.184.179:8081/", "http://34.203.152.55:8081/"));
+	public static final List<String> baseURLs = new ArrayList<>(List.of("http://35.193.126.223:8080/", "http://34.121.47.153:8080/",
+			"http://34.69.90.201:8080/", "http://34.125.75.24:8080/"));
 
 	//REST METHOD
 	public static final int GET = 1;

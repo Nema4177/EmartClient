@@ -4,14 +4,14 @@ import java.util.List;
 
 public class ItemList {
 
-    private List<Item> item;
+    private List<Item> items;
 
 
     public List<Item> getItem() {
-        return item;
+        return items;
     }
 
     public void setItem(List<Item> item) {
-        this.item = item;
+        this.items = item;
     }
 }

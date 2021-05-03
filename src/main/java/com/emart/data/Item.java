@@ -16,8 +16,9 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, int category, String keyWords, ItemCondition condition, double price,
+    public Item(int itemId,String name, int category, String keyWords, ItemCondition condition, double price,
                 int sellerId, int quantity) {
+    	this.id = itemId;
         this.itemName = name;
         this.category = category;
         this.keywords = keyWords;

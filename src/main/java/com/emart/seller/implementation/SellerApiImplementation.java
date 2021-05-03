@@ -36,8 +36,9 @@ public class SellerApiImplementation implements SellerApiInterface {
      * @throws ParseException
      */
     @SuppressWarnings("unchecked")
-    public JSONObject createAccount(String username, String name, String password) throws ParseException {
+    public JSONObject createAccount(int sellerId,String username, String name, String password) throws ParseException {
         JSONObject request = new JSONObject();
+        request.put("sellerId", sellerId);
         request.put(SellerConstants.request_username_key, username);
         request.put(SellerConstants.request_name_key, name);
         request.put(SellerConstants.request_password_key, password);
@@ -65,7 +66,7 @@ public class SellerApiImplementation implements SellerApiInterface {
      */
     public JSONObject addItemForSale(Item item, int sellerId) throws Exception {
         JSONObject request = new JSONObject();
-        request.put(SellerConstants.request_item_id_key, item.getId());
+        request.put("id", item.getId());
         request.put(SellerConstants.request_item_price_key, item.getPrice());
         request.put(SellerConstants.request_item_keywords_key, item.getKeyWords());
         request.put(SellerConstants.request_item_category_key, item.getCategory());

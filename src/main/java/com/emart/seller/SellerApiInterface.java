@@ -23,7 +23,7 @@ public interface SellerApiInterface {
         removeItemFromDB
     }
     
-    public JSONObject createAccount(String username, String name,String password) throws Exception;
+    public JSONObject createAccount(int sellerId,String username, String name,String password) throws Exception;
     
     public JSONObject login(String username, String password) throws Exception;
     

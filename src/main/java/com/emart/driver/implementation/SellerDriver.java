@@ -181,20 +181,21 @@ public class SellerDriver implements Driver {
 		int status = 0;
 		try {
 		System.out.println(
-				"Enter following details of the item: name,category(integer),keywords(separated by '-'),itemCondition(NEW/USED),price,quantity");
+				"Enter following details of the item: itemId,name,category(integer),keywords(separated by '-'),itemCondition(NEW/USED),price,quantity");
 		String input = utils.readInputString();
 		String[] inputItems = input.split(",");
-		String itemName = inputItems[0];
-		int category = Integer.parseInt(inputItems[1].trim());
-		String keywords = inputItems[2];
-		String itemCondition = inputItems[3];
+		int itemId = Integer.parseInt(inputItems[0].trim());
+		String itemName = inputItems[1];
+		int category = Integer.parseInt(inputItems[2].trim());
+		String keywords = inputItems[3];
+		String itemCondition = inputItems[4];
 		ItemCondition condition = ItemCondition.NEW;
 		if (itemCondition.equalsIgnoreCase("USED")) {
 			condition = ItemCondition.USED;
 		}
-		double price = Double.parseDouble(inputItems[4].trim());
-		int quantity = Integer.parseInt(inputItems[5].trim());
-		Item item = new Item(itemName, category, keywords, condition, price, sellerId, quantity);
+		double price = Double.parseDouble(inputItems[5].trim());
+		int quantity = Integer.parseInt(inputItems[6].trim());
+		Item item = new Item(itemId,itemName, category, keywords, condition, price, sellerId, quantity);
 		Instant start = Instant.now();
 		JSONObject response = sellerApi.addItemForSale(item, sellerId);
 		Instant end = Instant.now();
@@ -237,6 +238,9 @@ public class SellerDriver implements Driver {
 		String username;
 		String password;
 		String name;
+		int sellerId;
+		System.out.println("Enter SellerId");
+		sellerId = utils.readInputInteger();
 		System.out.println("Enter username");
 		username = utils.readInputString();
 		System.out.println("Enter name");
@@ -244,7 +248,7 @@ public class SellerDriver implements Driver {
 		System.out.println("Enter password");
 		password = utils.readInputString();
 		Instant start = Instant.now();
-		JSONObject response = sellerApi.createAccount(username, name, password);
+		JSONObject response = sellerApi.createAccount(sellerId,username, name, password);
 		Instant end = Instant.now();
 		Long st = (long) response.get(SellerConstants.response_status_key);
 		Long long_id;
